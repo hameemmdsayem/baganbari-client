@@ -1,0 +1,41 @@
+{
+    "shops": [
+      {
+        "name": "Floral Haven",
+        "creatorName": "Alice Smith",
+        "shopDetails": "Specializes in exotic flowers and ornamental plants.",
+        "totalPlants": 120
+      },
+      {
+        "name": "Petal Paradise",
+        "creatorName": "John Doe",
+        "shopDetails": "A paradise for all flower enthusiasts, offering unique varieties.",
+        "totalPlants": 85
+      },
+      {
+        "name": "Exotic Petals",
+        "creatorName": "Maria Lopez",
+        "shopDetails": "Rare flowers and plants from around the world.",
+        "totalPlants": 150
+      },
+      {
+        "name": "Flower Fancies",
+        "creatorName": "James Kim",
+        "shopDetails": "Delicate and elegant flowers, perfect for any occasion.",
+        "totalPlants": 60
+      },
+      {
+        "name": "Tropical Delights",
+        "creatorName": "Emma Wilson",
+        "shopDetails": "Offers a wide selection of tropical plants.",
+        "totalPlants": 90
+      },
+      {
+        "name": "Healthy Harvest",
+        "creatorName": "David Brown",
+        "shopDetails": "Specializes in organic herbs and healthy plants.",
+        "totalPlants": 110
+      }
+    ]
+  }
+  

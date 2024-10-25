@@ -15,8 +15,8 @@ const BestSeller = () => {
     const removeDuplicatesByShopName = (data) => {
         const uniqueShopMap = new Map();
         data.forEach(shop => {
-            if (!uniqueShopMap.has(shop.shop_name)) {
-                uniqueShopMap.set(shop.shop_name, shop);
+            if (!uniqueShopMap.has(shop.name)) {
+                uniqueShopMap.set(shop.name, shop);
             }
         });
         return Array.from(uniqueShopMap.values());
@@ -27,10 +27,10 @@ const BestSeller = () => {
     };
 
     useEffect(() => {
-        axiosInstance.get("/allplants")
+        axiosInstance.get("/shops")
             .then(data => {
-                const uniqueShops = removeDuplicatesByShopName(data.data);
-                const shuffleData = shuffleArray(uniqueShops);
+                // const uniqueShops = removeDuplicatesByShopName(data.data);
+                const shuffleData = shuffleArray(data.data);
                 setShops(shuffleData)
             })
     }, [axiosInstance])
@@ -54,7 +54,7 @@ const BestSeller = () => {
                                         shops.slice(0, datalength).map(shop =>
                                         <div key={shop._id} className="card bg-base-100 w-72 shadow-xl">
                                                 <div className="card-body space-y-3">
-                                                    <h2 className="font-bold text-base lg:text-lg">&quot;{shop.shop_name}&quot;</h2>
+                                                    <h2 className="font-bold text-base lg:text-lg">&quot;{shop.name}&quot;</h2>
 
                                                     <div className="flex items-center gap-6">
                                                         <div className="avatar">
@@ -62,11 +62,10 @@ const BestSeller = () => {
                                                                 <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
                                                             </div>
                                                         </div>
-                                                        <div>
-                                                            <h3 className="font-bold text-slate-700">Name</h3>
-                                                            <p className="text-slate-400">Description</p>
-                                                        </div>
-
+                                                            <div>
+                                                                <h3 className="font-bold text-slate-700">{shop.creatorName}</h3>
+                                                                <p className="text-slate-400"><span className="text-xs text-slate-303">Total Plants:</span> <span className="text-xs">{shop.totalPlants}</span></p>
+                                                            </div>
                                                     </div>
                                                 </div>
                                             </div>

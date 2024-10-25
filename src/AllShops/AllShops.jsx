@@ -24,14 +24,14 @@ const AllShops = () => {
     };
 
     useEffect(() => {
-        axiosInstance.get("/allplants")
+        axiosInstance.get("/shops")
             .then(data => {
-                const uniqueShops = removeDuplicatesByShopName(data.data);
-                setShops(uniqueShops)
+                // const uniqueShops = removeDuplicatesByShopName(data.data);
+                setShops(data.data)
             })
     }, [axiosInstance])
 
-
+// console.log(shops);
     return (
         <div>
             <BannerHome name="Shops"></BannerHome>

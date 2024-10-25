@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const Shops = ({shop}) => {
 
-    const {shop_name} = shop;
+    const {name} = shop;
 
     return (
         <div className="card bg-base-100 w-64 shadow-xl">
@@ -12,7 +12,7 @@ const Shops = ({shop}) => {
                     alt="Shoes" />
             </figure> */}
             <div className="card-body">
-                <h2 className='font-bold text-center'>{shop_name}</h2>
+                <h2 className='font-bold text-center'>{name}</h2>
             </div>
         </div>
     );
