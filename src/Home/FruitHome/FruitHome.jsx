@@ -24,7 +24,7 @@ const FruitHome = () => {
 
     return (
         <div>
-            <div className="mt-8 p-8">
+            <div className="mt-8 p-8 bg-no-repeat bg-cover bg-fixed bg-[url('https://i.ibb.co.com/k2NRt3X/banner-fruits.png')]">
                 <div className="mb-8">
                     <h3 className="text-lg font-bold">Fruit Plants</h3>
                 </div>

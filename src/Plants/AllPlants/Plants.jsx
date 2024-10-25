@@ -13,7 +13,7 @@ const Plants = ({ plant }) => {
                         <img
                             src={image}
                             alt={name}
-                            className='w-72 h-64'
+                            className='w-72 h-60'
                         />
                     </figure>
                     <div className="card-body">

@@ -36,7 +36,7 @@ const BestSeller = () => {
     }, [axiosInstance])
 
     return (
-        <div className="mt-8 p-8">
+        <div className="h-96 mt-8 p-8">
             <div className="mb-6">
                 <h3 className="text-lg font-bold">Best Sellers</h3>
             </div>
