@@ -9,6 +9,24 @@
         "category": "Flower"
     },
     {
+        "name": "Rose White",
+        "description": "A classic flower known for its beauty and fragrance.",
+        "price": 15.99,
+        "care-instruction": "Water regularly, ensure good drainage, and prune as needed.",
+        "shop-name": "Floral Haven",
+        "image": "https://i.ibb.co.com/bXMFhv8/photo-1578972497170-bfc780c65f65.jpg",
+        "category": "Flower"
+    },
+    {
+        "name": "Rose Black",
+        "description": "A classic flower known for its beauty and fragrance.",
+        "price": 15.99,
+        "care-instruction": "Water regularly, ensure good drainage, and prune as needed.",
+        "shop-name": "Floral Haven",
+        "image": "https://i.ibb.co.com/bXMFhv8/photo-1578972497170-bfc780c65f65.jpg",
+        "category": "Flower"
+    },
+    {
         "name": "Tulip",
         "description": "Bright and cheerful flowers that bloom in spring.",
         "price": 12.99,

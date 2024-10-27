@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; 
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
 import Flowers from "../../Plants/FlowerPlants/Flowers";
@@ -25,7 +25,7 @@ const FlowerHome = () => {
 
     return (
         <div>
-            <div className="mt-8 p-8">
+            <div className="lg:h-[70vh] mt-8 p-8">
             <div className="mb-4">
                 <h3 className="text-lg font-bold">Flower Plants</h3>
             </div>

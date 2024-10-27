@@ -16,12 +16,20 @@ const Heading = () => {
         .catch(error => console.log(error))
     }
 
+    const activeNav = ({ isActive }) => {
+        return {
+            backgroundColor: isActive ? '#859F3D' : '#F6FCDF',
+            fontWeight: isActive ? '600' : 'normal',
+            color: isActive ? 'white' : 'black'
+        }
+    }
+
     const navLinks = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="all-plants">All Plants</NavLink></li>
-        <li><NavLink to="fruit">Fruit Plants</NavLink></li>
-        <li><NavLink to="flower">Flower Plants</NavLink></li>
-        <li><NavLink to="shops">Shops</NavLink></li>
+        <li><NavLink to="/" style={activeNav}>Home</NavLink></li>
+        <li><NavLink to="all-plants" style={activeNav}>All Plants</NavLink></li>
+        <li><NavLink to="fruit" style={activeNav}>Fruit Plants</NavLink></li>
+        <li><NavLink to="flower" style={activeNav}>Flower Plants</NavLink></li>
+        <li><NavLink to="shops" style={activeNav}>Shops</NavLink></li>
         {
             loader ?
                 <div className="mt-12 text-center">
@@ -53,7 +61,7 @@ const Heading = () => {
                             </div>
 
                             :
-                            <li><NavLink to="login">Login</NavLink></li>
+                            <li><NavLink to="login" style={activeNav}>Login</NavLink></li>
 
                     }
                 </>
@@ -81,7 +89,7 @@ const Heading = () => {
 
             {/* Navbar */}
             <div className="">
-                <div className="navbar bg-base-100 fixed z-10">
+                <div className="navbar bg-[#F6FCDF] top-0 fixed z-10">
                     <div className="navbar-start">
                         <div className="dropdown">
                             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -107,7 +115,7 @@ const Heading = () => {
                         <Link to="/" className="btn btn-ghost text-xl">BaganBari</Link>
                     </div>
                     <div className="navbar-end hidden lg:flex">
-                        <ul className="menu menu-horizontal px-1">
+                        <ul className="menu menu-horizontal px-1 gap-3">
                             {navLinks}
                         </ul>
                     </div>

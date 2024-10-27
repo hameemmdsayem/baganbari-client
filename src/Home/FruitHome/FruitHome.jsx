@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
 import Fruits from "../../Plants/FruitPlants/Fruits";
+import bannerImage from "../../assets/fruit-banner-home.png"
 
 const FruitHome = () => {
     const [fruits, setFruits] = useState([]);
@@ -24,9 +25,9 @@ const FruitHome = () => {
 
     return (
         <div>
-            <div className="mt-8 p-8 bg-no-repeat bg-cover bg-fixed bg-[url('https://i.ibb.co.com/k2NRt3X/banner-fruits.png')]">
+            <div style={{ backgroundImage: `url(${bannerImage})` }} className="lg:h-[70vh] mt-8 p-8 bg-no-repeat bg-cover bg-fixed">
                 <div className="mb-8">
-                    <h3 className="text-lg font-bold">Fruit Plants</h3>
+                    <h3 className="text-lg font-bold text-white">Fruit Plants</h3>
                 </div>
 
 

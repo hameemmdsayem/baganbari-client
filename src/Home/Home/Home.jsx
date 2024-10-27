@@ -7,7 +7,7 @@ import GetUpdated from "../GetUpdated/GetUpdated";
 const Home = () => {
     return (
            <div>
-                <BannerHome name="Heading"></BannerHome>
+                <BannerHome name="BaganBari"></BannerHome>
                 <FlowerHome></FlowerHome>
                 <FruitHome></FruitHome>
                 <BestSeller></BestSeller>

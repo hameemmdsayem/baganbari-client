@@ -17,6 +17,7 @@ import ViewShops from "../Dashboard/Admin/ViewShops/ViewShops";
 import ShopHome from "../Dashboard/Shop/ShopHome/ShopHome";
 import SalesReport from "../Dashboard/Shop/SalesReport/SalesReport";
 import AllProducts from "../Dashboard/Shop/AllProducts/AllProducts";
+import SearchPlants from "../Home/SearchPlants/SearchPlants";
 
 const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
                 element: <FlowerPlants></FlowerPlants>,
             },
             {
+                path: "/searchplants",
+                element: <SearchPlants></SearchPlants>,
+            },
+            {
                 path: "/shops",
                 element: <AllShops></AllShops>,
             },
@@ -56,6 +61,7 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register></Register>,
             },
+            
         ]
     },
 
