@@ -18,11 +18,14 @@ import ShopHome from "../Dashboard/Shop/ShopHome/ShopHome";
 import SalesReport from "../Dashboard/Shop/SalesReport/SalesReport";
 import AllProducts from "../Dashboard/Shop/AllProducts/AllProducts";
 import SearchPlants from "../Home/SearchPlants/SearchPlants";
+import PrivateRoutes from "./PrivateRoutes";
+import ErrorPage from "../shared/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Root></Root>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: "/",
@@ -69,7 +72,9 @@ const router = createBrowserRouter([
     //Dashboard
     {
         path:'dashboard',
-        element: <Dashboard></Dashboard>,
+        element: <PrivateRoutes>
+            <Dashboard></Dashboard>
+        </PrivateRoutes>,
         children: [
 
             /* Admin Route */

@@ -1,32 +1,46 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { FaShoppingCart } from "react-icons/fa";
 
 const Flowers = ({ flower }) => {
-
-    const {_id, image, name, price, } = flower;
-
+    const { _id, image, name, price } = flower;
 
     return (
-        <Link to={`/plantDetails/${_id}`}>
-            <div className="card bg-base-100 w-64 shadow-xl cursor-pointer">
-                <figure>
+        <div className="w-full">
+            <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 overflow-hidden">
+                <figure className="relative aspect-square">
                     <img
                         src={image}
                         alt={name}
-                        className='w-72 h-64'
+                        className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                     />
+                    <div className="absolute top-5 right-3 bg-black bg-opacity-10 rounded-full p-3">
+                        <FaShoppingCart className="h-5 w-5 sm:h-5 sm:w-5 text-white cursor-pointer" />
+                    </div>
                 </figure>
-                <div className="card-body">
-                    <h2 ><span className='font-bold'>Name:</span> {name}</h2>
-                    <p className="font-bold">${price}</p>
+                <div className="card-body p-2 sm:p-4 md:p-6 bg-gradient-to-b from-green-50 to-white">
+                    <h2 className="card-title text-sm sm:text-md md:text-lg font-semibold text-[#859F3D] mb-2 truncate">{name}</h2>
+                    <div className="flex flex-col lg:flex-row justify-between items-center mt-1">
+                        <span className="badge badge-outline badge-lg text-white bg-[#859F3D] border-[#95b440] px-2 py-1 sm:px-3 sm:py-2 mb-4">
+                            ${price.toFixed(2)}
+                        </span>
+                        <Link to={`/plantDetails/${_id}`} className="badge badge-outline badge-lg text-xs sm:text-sm md:text-base font-medium text-[#859F3D] hover:bg-[#859F3D] hover:text-[#F6FCDF]">
+                            <span>View Details</span>
+                        </Link>
+                    </div>
                 </div>
             </div>
-        </Link>
+        </div>
     );
 };
 
 Flowers.propTypes = {
-    flower: PropTypes.object
-}
+    flower: PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        image: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        price: PropTypes.number.isRequired
+    })
+};
 
 export default Flowers;

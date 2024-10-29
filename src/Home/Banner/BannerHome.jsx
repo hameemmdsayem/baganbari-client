@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import bannerImage from "../../assets/banner-home-f.png"
 import { LuSearch } from "react-icons/lu";
 
-const BannerHome = ({name}) => {
+const BannerHome = ({name, description}) => {
     return (
         <div style={{ backgroundImage: `url(${bannerImage})` }} className=" bg-no-repeat bg-cover bg-center  h-[40vh] flex flex-col lg:flex-row justify-evenly lg:justify-around items-center">
             <div className="text-black text-center">
                 <h2 className="text-2xl lg:text-4xl font-bold">{name}</h2>
-                <p className="text-black text-sm lg:text-base">Grow Your Green Space with Ease</p>
+                <p className="text-black text-sm lg:text-base">{description}</p>
                 <Link to={"/searchplants"} className="btn bg-[#F6FCDF] hover:bg-[#859F3D] btn-outline btn-sm lg:btn-md mt-8"><button className="flex items-center gap-2">Browse Plants <LuSearch /></button></Link>
             </div>
             {/* <div className="text-white text-center ">
@@ -25,6 +25,7 @@ const BannerHome = ({name}) => {
 
 BannerHome.propTypes = {
     name: PropTypes.string,
+    description: PropTypes.string,
 }
 
 export default BannerHome;

@@ -1,6 +1,6 @@
 const Footer = () => {
     return (
-        <div className="mt-8 pb-4 bg-base-200">
+        <div className="mt-8 pb-4 bg-[#F6FCDF]">
             <footer className="footer text-base-content p-10">
                 <aside className="mt-8">
                     <p className="text-lg">
