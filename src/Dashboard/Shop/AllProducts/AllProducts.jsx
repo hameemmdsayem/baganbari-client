@@ -1,10 +1,173 @@
+import { useEffect, useState } from "react";
 import HelmetHook from "../../../hooks/HelmetHook";
+import { FaTrash, FaPen } from "react-icons/fa";
 
 const AllProducts = () => {
+    const [products, setProducts] = useState([]);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
+    const [showEditModal, setShowEditModal] = useState(false);
+    const [showAddModal, setShowAddModal] = useState(false);
+    const [currentProduct, setCurrentProduct] = useState(null);
+
+    useEffect(() => {
+        const demoProducts = [
+            {
+                _id: "1",
+                image: "https://via.placeholder.com/50",
+                name: "Aloe Vera",
+                description: "A succulent plant with therapeutic properties.",
+                price: "12.99",
+                careInstructions: "Water sparingly, keep in indirect sunlight.",
+                category: "Succulent",
+            },
+            {
+                _id: "2",
+                image: "https://via.placeholder.com/50",
+                name: "Rose",
+                description: "A fragrant flowering plant.",
+                price: "19.99",
+                careInstructions: "Water regularly, provide full sunlight.",
+                category: "Flower",
+            }
+        ];
+        setProducts(demoProducts);
+    }, []);
+
+    const handleDeleteProduct = () => {
+        setProducts(products.filter(product => product._id !== currentProduct._id));
+        setShowDeleteModal(false);
+    };
+
+    const openDeleteModal = (product) => {
+        setCurrentProduct(product);
+        setShowDeleteModal(true);
+    };
+
+    const openEditModal = (product) => {
+        setCurrentProduct(product);
+        setShowEditModal(true);
+    };
+
+    const handleEditProduct = () => {
+        setProducts(products.map(product => product._id === currentProduct._id ? currentProduct : product));
+        setShowEditModal(false);
+    };
+
+    const handleAddProduct = (newProduct) => {
+        setProducts([...products, { ...newProduct, _id: Date.now().toString() }]);
+        setShowAddModal(false);
+    };
+
     return (
         <>
-        <HelmetHook title={"All Products"}></HelmetHook>
-            All Products 
+            <HelmetHook title="All Products" />
+            <div className="container mx-auto px-4 py-6">
+                <div className='flex justify-between items-center mb-4'>
+                    <h2 className="text-3xl font-semibold">All Products</h2>
+                    <button onClick={() => setShowAddModal(true)} className="bg-[#859F3D] text-white px-4 py-2 rounded-lg shadow-md hover:bg-[#6f8430]">
+                        Add Plant
+                    </button>
+                </div>
+
+                <div className="overflow-x-auto">
+                    <table className="table-auto w-full bg-white shadow-md rounded-lg">
+                        <thead className="bg-gray-200">
+                            <tr>
+                                <th className="px-4 py-2">#</th>
+                                <th className="px-4 py-2">Image</th>
+                                <th className="px-4 py-2">Name</th>
+                                <th className="px-4 py-2">Description</th>
+                                <th className="px-4 py-2">Price</th>
+                                <th className="px-4 py-2">Care Instructions</th>
+                                <th className="px-4 py-2">Category</th>
+                                <th className="px-4 py-2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {products.map((product, idx) => (
+                                <tr key={product._id} className="border-b hover:bg-gray-100">
+                                    <td className="px-4 py-2">{idx + 1}</td>
+                                    <td className="px-4 py-2">
+                                        <img src={product.image} alt={product.name} className="w-12 h-12 rounded-full object-cover" />
+                                    </td>
+                                    <td className="px-4 py-2">{product.name}</td>
+                                    <td className="px-4 py-2">{product.description}</td>
+                                    <td className="px-4 py-2">${product.price}</td>
+                                    <td className="px-4 py-2">{product.careInstructions}</td>
+                                    <td className="px-4 py-2">{product.category}</td>
+                                    <td className="px-4 py-2 flex gap-2">
+                                        <button onClick={() => openEditModal(product)} className="text-blue-500 hover:text-blue-700">
+                                            <FaPen />
+                                        </button>
+                                        <button onClick={() => openDeleteModal(product)} className="text-red-500 hover:text-red-700">
+                                            <FaTrash />
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+
+                {/* Delete Confirmation Modal */}
+                {showDeleteModal && (
+                    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
+                        <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
+                            <h3 className="text-xl font-semibold mb-4">Confirm Delete</h3>
+                            <p>Are you sure you want to delete {currentProduct?.name}?</p>
+                            <div className="mt-6 flex justify-end gap-4">
+                                <button onClick={() => setShowDeleteModal(false)} className="px-4 py-2 bg-gray-300 rounded-lg">Cancel</button>
+                                <button onClick={handleDeleteProduct} className="px-4 py-2 bg-red-500 text-white rounded-lg">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Edit Product Modal */}
+                {showEditModal && (
+                    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
+                        <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
+                            <h3 className="text-xl font-semibold mb-4">Edit Product</h3>
+                            <input type="text" placeholder="Image URL" value={currentProduct?.image} onChange={(e) => setCurrentProduct({ ...currentProduct, image: e.target.value })} className="input input-bordered w-full mb-2" />
+                            <input type="text" placeholder="Name" value={currentProduct?.name} onChange={(e) => setCurrentProduct({ ...currentProduct, name: e.target.value })} className="input input-bordered w-full mb-2" />
+                            <input type="text" placeholder="Description" value={currentProduct?.description} onChange={(e) => setCurrentProduct({ ...currentProduct, description: e.target.value })} className="input input-bordered w-full mb-2" />
+                            <input type="text" placeholder="Price" value={currentProduct?.price} onChange={(e) => setCurrentProduct({ ...currentProduct, price: e.target.value })} className="input input-bordered w-full mb-2" />
+                            <input type="text" placeholder="Care Instructions" value={currentProduct?.careInstructions} onChange={(e) => setCurrentProduct({ ...currentProduct, careInstructions: e.target.value })} className="input input-bordered w-full mb-2" />
+                            <select value={currentProduct?.category} onChange={(e) => setCurrentProduct({ ...currentProduct, category: e.target.value })} className="select select-bordered w-full mb-4">
+                                <option value="Fruit">Fruit</option>
+                                <option value="Flower">Flower</option>
+                            </select>
+                            <div className="flex justify-end gap-4">
+                                <button onClick={() => setShowEditModal(false)} className="px-4 py-2 bg-gray-300 rounded-lg">Cancel</button>
+                                <button onClick={handleEditProduct} className="px-4 py-2 bg-blue-500 text-white rounded-lg">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+
+                {/* Add Product Modal */}
+                {showAddModal && (
+                    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
+                        <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
+                            <h3 className="text-xl font-semibold mb-4">Add New Product</h3>
+                            <input type="text" placeholder="Image URL" onChange={(e) => setCurrentProduct({ ...currentProduct, image: e.target.value })} className="input input-bordered w-full mb-2" />
+                            <input type="text" placeholder="Name" onChange={(e) => setCurrentProduct({ ...currentProduct, name: e.target.value })} className="input input-bordered w-full mb-2" />
+                            <input type="text" placeholder="Description" onChange={(e) => setCurrentProduct({ ...currentProduct, description: e.target.value })} className="input input-bordered w-full mb-2" />
+                            <input type="text" placeholder="Price" onChange={(e) => setCurrentProduct({ ...currentProduct, price: e.target.value })} className="input input-bordered w-full mb-2" />
+                            <input type="text" placeholder="Care Instructions" onChange={(e) => setCurrentProduct({ ...currentProduct, careInstructions: e.target.value })} className="input input-bordered w-full mb-2" />
+                            <select onChange={(e) => setCurrentProduct({ ...currentProduct, category: e.target.value })} className="select select-bordered w-full mb-4">
+                                <option value="">Select Category</option>
+                                <option value="Fruit">Fruit</option>
+                                <option value="Flower">Flower</option>
+                            </select>
+                            <div className="flex justify-end gap-4">
+                                <button onClick={() => setShowAddModal(false)} className="px-4 py-2 bg-gray-300 rounded-lg">Cancel</button>
+                                <button onClick={() => handleAddProduct(currentProduct)} className="px-4 py-2 bg-green-500 text-white rounded-lg">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                )}
+            </div>
         </>
     );
 };

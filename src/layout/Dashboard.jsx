@@ -5,8 +5,8 @@ import useAuth from "../hooks/useAuth";
 const Dashboard = () => {
 
     const isAdmin = false;
-    const isUser = false;
-    const isOwner = true;
+    const isUser = true;
+    const isOwner = false;
 
     const location = useLocation;
     
@@ -41,8 +41,7 @@ const Dashboard = () => {
                     {isUser && (
                         <>
                             <li><NavLink to={'/dashboard/user-home'}>User Home</NavLink></li>
-                            <li><NavLink to={'/dashboard/all-users'}>All Users</NavLink></li>
-                            <li><NavLink to={'/dashboard/all-shops'}>All Shops</NavLink></li>
+                            <li><NavLink to={'/dashboard/create-shop'}>Create Shop</NavLink></li>
                         </>
                     )}
 

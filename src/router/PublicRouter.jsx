@@ -20,6 +20,9 @@ import AllProducts from "../Dashboard/Shop/AllProducts/AllProducts";
 import SearchPlants from "../Home/SearchPlants/SearchPlants";
 import PrivateRoutes from "./PrivateRoutes";
 import ErrorPage from "../shared/ErrorPage";
+import SettingsPage from "../shared/SettingsPage";
+import UserProfile from "../Dashboard/User/UserProfile/UserProfile";
+import CreateShop from "../Dashboard/User/CreateShop/CreateShop";
 
 const router = createBrowserRouter([
     {
@@ -104,6 +107,22 @@ const router = createBrowserRouter([
                 path:'all-products',
                 element: <AllProducts></AllProducts>
             },
+
+            /* User Route */
+            {
+                path: 'user-home',
+                element: <UserProfile></UserProfile>
+            },
+            {
+                path: 'create-shop',
+                element: <CreateShop></CreateShop>
+            },
+
+            {
+                path:'setting',
+                element: <SettingsPage></SettingsPage>
+            },
+
         ]
 
     }

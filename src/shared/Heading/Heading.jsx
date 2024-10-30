@@ -6,8 +6,8 @@ import image from "../../assets/user.png"
 const Heading = () => {
 
     const isAdmin = false;
-    // const isUser = false;
-    const isOwner = true;
+    const isUser = true;
+    const isOwner = false;
 
     const { loader, user, logOut } = useAuth();
 
@@ -52,6 +52,11 @@ const Heading = () => {
                                     {
                                         isOwner &&
                                         <li><NavLink to={'/dashboard/shop-home'}>Dashboard</NavLink></li>
+
+                                    }
+                                    {
+                                        isUser &&
+                                        <li><NavLink to={'/dashboard/user-home'}>Dashboard</NavLink></li>
 
                                     }
 

@@ -1,19 +1,25 @@
-import { Outlet, ScrollRestoration } from "react-router-dom";
+import { Outlet, ScrollRestoration, useLocation } from "react-router-dom";
 import Heading from "../shared/Heading/Heading";
 import Footer from "../shared/Footer/Footer";
 
 const Root = () => {
+    const location = useLocation();
+
+    // Check if the current path includes "view-details" to hide the footer
+    const hideFooter = location.pathname.includes("plantDetails");
+
     return (
         <div className="bg-slate-50">
-            <Heading></Heading>
+            <Heading />
 
             <div className="mx-full bg-white rounded-lg">
-                <Outlet></Outlet>
+                <Outlet />
             </div>
             
-            <Footer></Footer>
+            {/* Render Footer conditionally */}
+            {!hideFooter && <Footer />}
 
-            <ScrollRestoration></ScrollRestoration>
+            <ScrollRestoration />
         </div>
     );
 };

@@ -7,51 +7,27 @@ import { useState } from "react";
 import useAxios from "../hooks/useAxios";
 
 const Login = () => {
-
     const [show, setShow] = useState(false);
-    const axiosInstance = useAxios()
+    const axiosInstance = useAxios();
 
     const { signIn, googleSignIn } = useAuth();
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     const handleSignIn = e => {
         e.preventDefault();
-
         const form = e.target;
-
         const email = form.email.value;
         const password = form.password.value;
 
         signIn(email, password)
             .then(() => {
                 toast.success("Successfully Signed in");
-
-                navigate('/')
+                navigate('/');
             })
             .catch(() => toast.error("Invalid Email / Password"));
 
         form.reset();
-    }
-
-    /*  const handleGoogleLogin = () => {
-         googleSignIn()
-             .then((result) => {
- 
-                 const userInfo = {
-                     name: result.user.displayName,
-                     email: result.user.email,
-                     role: "User"
-                 }
-                 axiosInstance.post('/users', userInfo)
-                     .then(res => {
-                         if (res.data.insertedId) {
-                             toast("Successfully Signed in")
-                             navigate('/')
-                         }
-                     })
-             })
-             .catch(() => console.log("Error"))
-     } */
+    };
 
     const handleGoogleLogin = () => {
         googleSignIn()
@@ -71,8 +47,6 @@ const Login = () => {
                         } else {
                             toast.error("Unexpected error during user registration.");
                         }
-
-                        // Navigate to the home page regardless of the database operation status
                         navigate('/');
                     })
                     .catch(() => {
@@ -86,56 +60,44 @@ const Login = () => {
             });
     };
 
-
     return (
-        <div>
-            <div className="hero bg-base-200 min-h-screen">
-                <div className="hero-content flex-col gap-6">
-                    <div className="text-center lg:text-left">
-                        <h1 className="text-2xl lg:text-5xl font-bold">Login now!</h1>
+        <div className="bg-[#F6FCDF] min-h-screen flex items-center justify-center">
+            <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+                <h1 className="text-3xl font-bold text-center text-[#4A4A4A] mb-6">Welcome Back!</h1>
+                <form className="space-y-6" onSubmit={handleSignIn}>
+                    <div>
+                        <label className="block text-sm font-medium text-[#4A4A4A]">Email</label>
+                        <input
+                            type="email"
+                            placeholder="you@example.com"
+                            className="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-[#6F8430] transition duration-200"
+                            name="email"
+                            required
+                        />
                     </div>
-                    <div className="card bg-base-100 w-full shadow-2xl">
-                        <form className="card-body" onSubmit={handleSignIn}>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="email" placeholder="email" className="input input-bordered" name="email" required />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <div className="relative">
-                                    <input type={show ? "text" : "password"}
-                                        placeholder="password" className="input input-bordered w-full" name="password" required />
-                                    <span className="absolute top-4 right-2 cursor-pointer" onClick={() => setShow(!show)}>
-                                        {show ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>}
-                                    </span>
-                                </div>
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
-                            </div>
-                            <div className="form-control mt-2">
-                                <input type="submit" value="Login" className="btn btn-primary" />
-                            </div>
-
-                            <div className="mb-4">
-                                <button className="btn btn-outline btn-success w-full text-lg" onClick={handleGoogleLogin}><FaGoogle /> Google</button>
-                            </div>
-
-
-                            <p className=" mt-4">Are you new here? Please <Link to="/register" className="text-blue-600 hover:underline">Register</Link></p>
-                        </form>
+                    <div>
+                        <label className="block text-sm font-medium text-[#4A4A4A]">Password</label>
+                        <div className="relative">
+                            <input
+                                type={show ? "text" : "password"}
+                                placeholder="Enter your password"
+                                className="w-full p-4 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-[#6F8430] transition duration-200"
+                                name="password"
+                                required
+                            />
+                            <span className="absolute top-3 right-3 cursor-pointer" onClick={() => setShow(!show)}>
+                                {show ? <FaEyeSlash className="text-gray-600" /> : <FaEye className="text-gray-600" />}
+                            </span>
+                        </div>
                     </div>
-                </div>
+                    <button type="submit" className="w-full p-4 bg-[#6F8430] text-white font-semibold rounded-md shadow hover:bg-[#4A6A3D] transition duration-200">Login</button>
+                    <button className="w-full p-4 border border-[#6F8430] text-[#6F8430] font-semibold rounded-md flex items-center justify-center hover:bg-[#6F8430] hover:text-white transition duration-200" onClick={handleGoogleLogin}>
+                        <FaGoogle className="mr-2" /> Sign in with Google
+                    </button>
+                    <p className="text-center text-[#4A4A4A]">New here? <Link to="/register" className="text-[#6F8430] hover:underline">Register</Link></p>
+                </form>
             </div>
-            <ToastContainer
-                position="top-center"
-                transition={Zoom}
-                autoClose={1800}
-            ></ToastContainer>
+            <ToastContainer position="top-center" transition={Zoom} autoClose={1800} />
         </div>
     );
 };
