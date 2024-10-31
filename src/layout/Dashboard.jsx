@@ -5,8 +5,8 @@ import useAuth from "../hooks/useAuth";
 const Dashboard = () => {
 
     const isAdmin = false;
-    const isUser = true;
-    const isOwner = false;
+    const isUser = false;
+    const isOwner = true;
 
     const location = useLocation;
     

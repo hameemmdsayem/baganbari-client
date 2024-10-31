@@ -6,8 +6,8 @@ import image from "../../assets/user.png"
 const Heading = () => {
 
     const isAdmin = false;
-    const isUser = true;
-    const isOwner = false;
+    const isUser = false;
+    const isOwner = true;
 
     const { loader, user, logOut } = useAuth();
 

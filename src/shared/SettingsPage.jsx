@@ -71,7 +71,7 @@ const SettingsPage = () => {
                     </div>
                     <button
                         onClick={handleSave}
-                        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600"
+                        className="mt-4 px-4 py-2 bg-[#6F8430] text-white rounded-lg shadow-md hover:bg-[#5d6d2c]"
                     >
                         Save Changes
                     </button>

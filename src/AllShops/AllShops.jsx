@@ -13,15 +13,15 @@ const AllShops = () => {
 
     // remove duplicate shopnames
 
-    const removeDuplicatesByShopName = (data) => {
-        const uniqueShopMap = new Map();
-        data.forEach(shop => {
-            if (!uniqueShopMap.has(shop.shop_name)) {
-                uniqueShopMap.set(shop.shop_name, shop);
-            }
-        });
-        return Array.from(uniqueShopMap.values());
-    };
+    // const removeDuplicatesByShopName = (data) => {
+    //     const uniqueShopMap = new Map();
+    //     data.forEach(shop => {
+    //         if (!uniqueShopMap.has(shop.shop_name)) {
+    //             uniqueShopMap.set(shop.shop_name, shop);
+    //         }
+    //     });
+    //     return Array.from(uniqueShopMap.values());
+    // };
 
     useEffect(() => {
         axiosInstance.get("/shops")

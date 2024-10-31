@@ -23,6 +23,8 @@ import ErrorPage from "../shared/ErrorPage";
 import SettingsPage from "../shared/SettingsPage";
 import UserProfile from "../Dashboard/User/UserProfile/UserProfile";
 import CreateShop from "../Dashboard/User/CreateShop/CreateShop";
+import ShopDetails from "../AllShops/ShopDetails";
+import CartShop from "../Dashboard/User/ShopCart/CartShop";
 
 const router = createBrowserRouter([
     {
@@ -51,6 +53,10 @@ const router = createBrowserRouter([
                 element: <SearchPlants></SearchPlants>,
             },
             {
+                path: "/shopcart",
+                element: <CartShop></CartShop>,
+            },
+            {
                 path: "/shops",
                 element: <AllShops></AllShops>,
             },
@@ -58,6 +64,11 @@ const router = createBrowserRouter([
                 path: "/plantDetails/:id",
                 element: <ViewDetails></ViewDetails>,
                 loader: ({params})=> fetch(`http://localhost:5000/allplants/${params.id}`)
+            },
+            {
+                path: "/shopDetails/:id",
+                element: <ShopDetails></ShopDetails>,
+                loader: ({params})=> fetch(`http://localhost:5000/shops/${params.id}`)
             },
             {
                 path: "/login",
