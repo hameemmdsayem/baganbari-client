@@ -29,8 +29,8 @@ const Root = () => {
                 <div className="fixed right-3 bottom-10 flex flex-col gap-2">
                     <Link to={"/shopcart"}>
                     <button
-                        className="border border-[#859F3D] bg-white text-[#859F3D] w-[40px] h-[40px] rounded-full flex items-center justify-center
-                       hover:bg-[#6E8B2D] hover:text-white hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out"
+                        className="border border-[#2E7D32] bg-white text-[#2E7D32] w-[40px] h-[40px] rounded-full flex items-center justify-center
+                       hover:bg-[#2E7D32] hover:text-white hover:shadow-lg hover:scale-105 transition-all duration-300 ease-in-out"
                     >
                         <FaShoppingCart />
                     </button>
@@ -38,8 +38,8 @@ const Root = () => {
 
                     <button
                         onClick={scrollToTop}
-                        className="border border-[#859F3D] bg-[#859F3D] text-white w-[40px] h-[40px] rounded-full flex items-center justify-center
-                       hover:bg-white hover:text-[#859F3D] hover:shadow-md transition-all duration-300"
+                        className="border border-[#2E7D32] bg-[#2E7D32] text-white w-[40px] h-[40px] rounded-full flex items-center justify-center
+                       hover:bg-white hover:text-[#2E7D32] hover:shadow-md transition-all duration-300"
                     >
                         <FaAngleUp />
                     </button>

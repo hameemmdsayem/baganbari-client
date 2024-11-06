@@ -3,6 +3,7 @@ import BannerHome from "../Home/Banner/BannerHome";
 import Shops from "./Shops";
 import useAuth from "../hooks/useAuth";
 import useAxios from "../hooks/useAxios";
+import PublicBanner from "../Home/Banner/PublicBanner";
 
 const AllShops = () => {
 
@@ -34,7 +35,7 @@ const AllShops = () => {
 // console.log(shops);
     return (
         <div>
-            <BannerHome name="Shops"></BannerHome>
+            <PublicBanner title="All Shops" description="All Shops is here"></PublicBanner>
 
             <div>
                 {

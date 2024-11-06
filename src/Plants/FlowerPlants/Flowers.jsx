@@ -19,12 +19,12 @@ const Flowers = ({ flower }) => {
                     </div>
                 </figure>
                 <div className="card-body p-2 sm:p-4 md:p-6 bg-gradient-to-b from-green-50 to-white">
-                    <h2 className="card-title text-sm sm:text-md md:text-lg font-semibold text-[#859F3D] mb-2 truncate">{name}</h2>
+                    <h2 className="card-title text-sm sm:text-md md:text-lg font-semibold text-[#2E7D32] mb-2 truncate">{name}</h2>
                     <div className="flex flex-col lg:flex-row justify-between items-center mt-1">
-                        <span className="badge badge-outline badge-lg text-white bg-[#859F3D] border-[#95b440] px-2 py-1 sm:px-3 sm:py-2 mb-4">
+                        <span className="badge badge-outline badge-lg text-white bg-[#2E7D32] border-[#2E7D32] px-2 py-1 sm:px-3 sm:py-2 mb-4">
                             ${price.toFixed(2)}
                         </span>
-                        <Link to={`/plantDetails/${_id}`} className="badge badge-outline badge-lg text-xs sm:text-sm md:text-base font-medium text-[#859F3D] hover:bg-[#859F3D] hover:text-[#F6FCDF]">
+                        <Link to={`/plantDetails/${_id}`} className="badge badge-outline badge-lg text-xs sm:text-sm md:text-base font-medium text-[#2E7D32] hover:bg-[#2E7D32] hover:text-[#F6FCDF]">
                             <span>View Details</span>
                         </Link>
                     </div>

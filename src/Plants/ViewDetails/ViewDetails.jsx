@@ -24,7 +24,7 @@ const ViewDetails = () => {
     return (
         <>
             <HelmetHook title={name} />
-            <div className="min-h-screen bg-[#F6FCDF] flex flex-col items-center justify-center p-8 space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8 relative">
+            <div className="min-h-screen bg-[#ffffff] flex flex-col items-center justify-center p-8 space-y-10 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-8 relative">
 
                 {/* First Column - Title and Description */}
                 <div className="flex flex-col justify-between p-4 lg:pr-8 relative text-center lg:text-left">
@@ -52,7 +52,7 @@ const ViewDetails = () => {
                     </div>
 
                     {/* Buy Button */}
-                    <button className="btn bg-[#6f8430] text-white rounded-full px-8 py-3 shadow-lg hover:bg-green-700 transition duration-300">
+                    <button className="btn bg-[#2E7D32] text-white rounded-full px-8 py-3 shadow-lg hover:bg-white hover:text-[#2E7D32] hover:border-[#2E7D32] transition duration-300">
                         Buy Now
                     </button>
                 </div>
@@ -60,7 +60,7 @@ const ViewDetails = () => {
                 {/* Back Arrow Icon with Unique Hover Effect */}
                 <div 
                     onClick={handleBackHomePage} 
-                    className="absolute top-20 left-12 flex items-center justify-center w-10 h-10 bg-white rounded-full border border-gray-300 cursor-pointer transition-transform duration-300 hover:bg-[#859F3D] hover:shadow-lg hover:text-white text-black"
+                    className="absolute top-20 left-12 flex items-center justify-center w-10 h-10 bg-white rounded-full border border-gray-300 cursor-pointer transition-transform duration-300 hover:bg-[#2E7D32] hover:shadow-lg hover:text-white text-black"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

@@ -31,7 +31,7 @@ const SearchPlants = () => {
     return (
         <div className='pt-20'>
             <div className="bg-white p-6 rounded-lg shadow-md max-w mx-auto lg:px-96">
-                <h2 className="text-2xl font-bold text-[#859F3D] mb-4 text-center">Search Plants</h2>
+                <h2 className="text-2xl font-bold text-[#2E7D32] mb-4 text-center">Search Plants</h2>
                 <div className="flex gap-4">
                     <input
                         type="text"
@@ -41,7 +41,7 @@ const SearchPlants = () => {
                         onChange={(e) => setKeyword(e.target.value)}
                     />
                     <button
-                        className="btn bg-[#F6FCDF] hover:bg-[#859F3D] text-[#859F3D] hover:text-white flex items-center"
+                        className="btn bg-[#F6FCDF] hover:bg-[#2E7D32] text-[#2E7D32] hover:text-white flex items-center"
                         onClick={handleSearch}
                     >
                         <IoSearchCircleOutline className="w-5 h-5 mr-1" />
@@ -54,7 +54,7 @@ const SearchPlants = () => {
                 {noResults ? (
                     <p className="text-red-500 mt-8 text-center">No items found. Please try a different search term.</p>
                 ) : (
-                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="m-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {searchResults.map((plant) => (
                             <Link to={`/plantDetails/${plant._id}`} key={plant._id}>
                                 <div className="card bg-base-100 w-64 shadow-xl cursor-pointer">

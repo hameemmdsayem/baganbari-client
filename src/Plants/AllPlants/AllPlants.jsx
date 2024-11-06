@@ -3,6 +3,7 @@ import Plants from "./Plants";
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
 import { useEffect, useState } from "react";
+import PublicBanner from "../../Home/Banner/PublicBanner";
 
 const AllPlants = () => {
     const [plants, setPlants] = useState([]);
@@ -31,10 +32,7 @@ const AllPlants = () => {
 
     return (
         <div>
-            <BannerHome
-                name="Explore Our Diverse Collection of Plants"
-                description="where you can discover a vibrant variety of plants available for purchase."
-            />
+            <PublicBanner title="Plants" description="Find your favourite plant"></PublicBanner>
 
             <div>
                 {
@@ -61,7 +59,7 @@ const AllPlants = () => {
                                 <div className="mt-6 text-center">
                                     <button
                                         className="mt-6 px-4 py-2 text-white font-semibold rounded-lg transition duration-300 ease-in-out 
-                       bg-[#859F3D] hover:bg-[#7a8b36] focus:outline-none focus:ring-2 focus:ring-[#859F3D] focus:ring-opacity-50"
+                       bg-[#2E7D32] hover:bg-[#2e5730] focus:outline-none focus:ring-2 focus:ring-[#859F3D] focus:ring-opacity-50"
                                         onClick={loadMorePlants}>
                                         Load More
                                     </button>

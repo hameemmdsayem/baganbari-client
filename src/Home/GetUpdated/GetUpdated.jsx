@@ -2,7 +2,7 @@
 const GetUpdated = () => {
     return (
         <div className="bg-black h-48 lg:h-96 p-8">
-            <div className="lg:flex justify-around pt-4 lg:pt-36">
+            <div className="lg:flex justify-around p-4 lg:pt-24">
                 <div className="text-white">
                     <h2 className="text-2xl lg:text-5xl font-bold"><span className="block">Get updated</span>
                         <span className="block mt-0 lg:mt-4">about new plants</span></h2>

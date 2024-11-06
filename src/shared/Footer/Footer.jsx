@@ -1,7 +1,7 @@
 const Footer = () => {
     return (
-        <div className="mt-8 pb-4 bg-[#F6FCDF]">
-            <footer className="footer text-base-content p-10">
+        <div className="pb-4 bg-[#204a22] text-white">
+            <footer className="footer p-10 text-white">
                 <aside className="mt-8">
                     <p className="text-lg">
                         BaganBari Industries Ltd.

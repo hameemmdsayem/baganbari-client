@@ -23,7 +23,7 @@ const ShopDetails = () => {
             <div className="flex flex-col items-center text-center">
                 {/* Avatar */}
                 <div className="avatar mb-4">
-                    <div className="w-24 rounded-full ring ring-[#859F3D] ring-offset-base-100 ring-offset-2">
+                    <div className="w-24 rounded-full ring ring-[#2E7D32] ring-offset-base-100 ring-offset-2">
                         <img src="https://via.placeholder.com/96" alt="Profile" /> {/* Replace with actual image source */}
                     </div>
                 </div>
@@ -41,7 +41,7 @@ const ShopDetails = () => {
             <div className="flex justify-center space-x-6 mb-6">
                 <div className="text-center">
                     <p className="text-xs text-gray-500">Total Plants</p>
-                    <h3 className="text-xl font-semibold text-[#859F3D]">{shopData.length}</h3>
+                    <h3 className="text-xl font-semibold text-[#2E7D32]">{shopData.length}</h3>
                 </div>
             </div>
         </div>

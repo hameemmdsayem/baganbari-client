@@ -17,7 +17,7 @@ const CartShop = () => {
     const total = products.reduce((acc, product) => acc + product.price * product.quantity, 0);
 
     return (
-        <div className="mt-40 px-4 lg:px-20 pb-36">
+        <div className="pt-40 px-4 lg:px-20 pb-36">
 
             <h1 className="text-center text-2xl text-black font-bold px-20">CHECKOUT</h1>
             {/* Product List */}
@@ -56,7 +56,7 @@ const CartShop = () => {
                     <p className="text-sm text-gray-500 mb-4">Add your code for an instant cart discount</p>
                     <div className="flex gap-2">
                         <input type="text" placeholder="Enter coupon code" className="w-full p-2 border border-gray-300 rounded-md focus:outline-none" />
-                        <button className="px-4 py-2 bg-[#859F3D] text-white rounded-md hover:bg-[#6E8B2D]">Apply</button>
+                        <button className="px-4 py-2 bg-[#2E7D32] text-white rounded-md hover:bg-[#305432]">Apply</button>
                     </div>
                 </div>
 
@@ -85,7 +85,7 @@ const CartShop = () => {
                         <span>Total</span>
                         <span>${total.toFixed(2)}</span>
                     </div>
-                    <button className="w-full mt-4 py-2 bg-[#859F3D] text-white rounded-md hover:bg-[#6E8B2D]">Checkout</button>
+                    <button className="w-full mt-4 py-2 bg-[#2E7D32] text-white rounded-md hover:bg-[#366738]">Checkout</button>
                 </div>
             </div>
         </div>

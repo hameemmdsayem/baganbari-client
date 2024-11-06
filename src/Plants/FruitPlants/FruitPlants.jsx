@@ -3,6 +3,7 @@ import BannerHome from "../../Home/Banner/BannerHome";
 import Fruits from "./Fruits";
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
+import PublicBanner from "../../Home/Banner/PublicBanner";
 
 const FruitPlants = () => {
     const [fruits, setFruits] = useState([]);
@@ -26,10 +27,7 @@ const FruitPlants = () => {
 
     return (
         <div>
-            <BannerHome
-                name="Discover Delicious Fruit Plants"
-                description="Explore our selection of fresh fruit plants to enhance your garden."
-            />
+            <PublicBanner title="All Shops" description="All Shops is here"></PublicBanner>
             {
                 loader ? (
                     <div className="mt-12 text-center">
@@ -50,7 +48,7 @@ const FruitPlants = () => {
                             <div className="mt-6 text-center">
                                 <button
                                     className="mt-6 px-4 py-2 text-white font-semibold rounded-lg transition duration-300 ease-in-out 
-                                    bg-[#859F3D] hover:bg-[#7a8b36] focus:outline-none focus:ring-2 focus:ring-[#859F3D] focus:ring-opacity-50"
+                                    bg-[#2E7D32] hover:bg-[#2f5831] focus:outline-none focus:ring-2 focus:ring-[#2E7D32] focus:ring-opacity-50"
                                     onClick={loadMoreFruits}>
                                     Load More
                                 </button>
