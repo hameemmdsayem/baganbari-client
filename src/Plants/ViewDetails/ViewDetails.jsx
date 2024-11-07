@@ -53,7 +53,7 @@ const ViewDetails = () => {
 
                     {/* Buy Button */}
                     <button className="btn bg-[#2E7D32] text-white rounded-full px-8 py-3 shadow-lg hover:bg-white hover:text-[#2E7D32] hover:border-[#2E7D32] transition duration-300">
-                        Buy Now
+                        Add to cart
                     </button>
                 </div>
 

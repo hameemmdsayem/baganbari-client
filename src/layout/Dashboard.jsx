@@ -1,12 +1,15 @@
 import { IoIosArrowBack } from "react-icons/io";
 import { Link, NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import useAdmin from "../hooks/useAdmin";
+import useUser from "../hooks/useUser";
+import useOwner from "../hooks/useOwner";
 
 const Dashboard = () => {
 
-    const isAdmin = false;
-    const isUser = false;
-    const isOwner = true;
+    const [isAdmin] = useAdmin();
+    const [isUser] = useUser();
+    const [isOwner] = useOwner();
 
     const location = useLocation;
     

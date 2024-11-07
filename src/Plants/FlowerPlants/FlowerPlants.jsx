@@ -32,7 +32,7 @@ const FlowerPlants = () => {
 
     return (
         <div>
-            <PublicBanner title="All Shops" description="All Shops is here"></PublicBanner>
+            <PublicBanner title="Beautiful Flowering Plants" description="Brighten your garden with our stunning flowering plant selection."></PublicBanner>
             {
                 loader ? (
                     <div className="mt-12 text-center">

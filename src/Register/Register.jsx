@@ -36,7 +36,7 @@ const Register = () => {
                         const userInfo = {
                             name: name,
                             email: email,
-                            role: 'User'
+                            role: 'user'
                         }
 
                         axiosInstance.post('/users', userInfo)

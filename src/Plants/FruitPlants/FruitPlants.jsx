@@ -27,7 +27,7 @@ const FruitPlants = () => {
 
     return (
         <div>
-            <PublicBanner title="All Shops" description="All Shops is here"></PublicBanner>
+            <PublicBanner title="Fruit Plants for Your Garden" description="Grow fresh fruits at home with our easy-to-care-for fruit plants, perfect for any garden."></PublicBanner>
             {
                 loader ? (
                     <div className="mt-12 text-center">

@@ -4,17 +4,21 @@ import HelmetHook from "../../hooks/HelmetHook";
 import useAuth from "../../hooks/useAuth";
 import image from "../../assets/user.png";
 import { FaSearch } from 'react-icons/fa';
+import useOwner from "../../hooks/useOwner";
+import useUser from "../../hooks/useUser";
+import useAdmin from "../../hooks/useAdmin";
 
 const Heading = () => {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [userDropdownOpen, setUserDropdownOpen] = useState(false);
 
-    const isAdmin = false;
-    const isUser = false;
-    const isOwner = true;
+    const [isAdmin] = useAdmin();
+    const [isUser] = useUser();
+    const [isOwner] = useOwner();
 
     const { loader, user, logOut } = useAuth();
+    const location = useLocation(); // Track location changes
 
     useEffect(() => {
         const handleScroll = () => {
@@ -23,6 +27,11 @@ const Heading = () => {
         document.addEventListener('scroll', handleScroll);
         return () => document.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Collapse mobile menu on page load and route change
+    useEffect(() => {
+        setMobileMenuOpen(false);
+    }, [location]); // Runs whenever location changes
 
     // Close dropdowns when clicking outside
     useEffect(() => {
@@ -50,7 +59,6 @@ const Heading = () => {
         borderRadius: '0.25rem',
     });
 
-    const location = useLocation();
     const currentPath = location.pathname;
 
     const pageTitles = {

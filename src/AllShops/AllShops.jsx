@@ -35,7 +35,7 @@ const AllShops = () => {
 // console.log(shops);
     return (
         <div>
-            <PublicBanner title="All Shops" description="All Shops is here"></PublicBanner>
+            <PublicBanner title="Our Plant Shops" description="Discover quality plants and expert advice at our plant shops"></PublicBanner>
 
             <div>
                 {

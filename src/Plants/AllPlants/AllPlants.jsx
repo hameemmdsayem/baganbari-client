@@ -32,7 +32,7 @@ const AllPlants = () => {
 
     return (
         <div>
-            <PublicBanner title="Plants" description="Find your favourite plant"></PublicBanner>
+            <PublicBanner title="Explore All" description="Explore our diverse plant selection for any space or garden"></PublicBanner>
 
             <div>
                 {

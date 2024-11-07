@@ -35,7 +35,7 @@ const Login = () => {
                 const userInfo = {
                     name: result.user.displayName,
                     email: result.user.email,
-                    role: "User"
+                    role: "user"
                 };
 
                 axiosInstance.post('/users', userInfo)

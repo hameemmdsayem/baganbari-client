@@ -9,8 +9,8 @@ const PublicBanner = ({title,description}) => {
             style={{ backgroundImage: `url(${bannerImage})` }}
         >
             {/* Centered Text Section with Dark Background */}
-            <div className="text-center p-24 rounded-lg max-w-xl">
-                <h1 className="text-3xl lg:text-5xl font-bold text-[#31a937]">
+            <div className="text-center lg:py-24 py-20 px-20 rounded-lg max-w-xl">
+                <h1 className="text-xl lg:text-3xl font-bold text-[#31a937]">
                     {title}
                 </h1>
                 <p className="text-base lg:text-xl mt-4 text-white">
