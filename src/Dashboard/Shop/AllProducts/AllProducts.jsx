@@ -53,13 +53,30 @@ const AllProducts = () => {
         setShowEditModal(true);
     };
 
-    const handleEditProduct = () => {
-        setShopData(shopData.map(product => product._id === currentProduct._id ? currentProduct : product));
-        setShowEditModal(false);
+    const handleEditProduct = (e) => {
+        e.preventDefault();
+        
+        axiosInstance.patch(`/allplants/${currentProduct._id}`, currentProduct)
+            
+                setShowEditModal(false);
+        
     };
 
-    const handleAddProduct = (newProduct) => {
-        setShopData([...shopData, { ...newProduct, _id: Date.now().toString() }]);
+    const handleAddProduct = () => {
+
+        const productInfo = {
+            name: currentProduct.name,
+            description: currentProduct.description,
+            price: currentProduct.price,
+            image: currentProduct.image,
+            category: currentProduct.category,
+            careInstruction: currentProduct.careInstruction,
+            shopName: info.name
+        }
+
+        axiosInstance.post("/allplants", productInfo)
+
+
         setShowAddModal(false);
     };
 
@@ -92,7 +109,7 @@ const AllProducts = () => {
                                             <th className="px-4 py-2">Name</th>
                                             <th className="px-4 py-2">Description</th>
                                             <th className="px-4 py-2">Price</th>
-                                            <th className="px-4 py-2">Care Instructions</th>
+                                            <th className="px-4 py-2">Care Instruction</th>
                                             <th className="px-4 py-2">Category</th>
                                             <th className="px-4 py-2">Action</th>
                                         </tr>
@@ -107,7 +124,7 @@ const AllProducts = () => {
                                                 <td className="px-4 py-2">{product.name}</td>
                                                 <td className="px-4 py-2">{product.description}</td>
                                                 <td className="px-4 py-2">${product.price}</td>
-                                                <td className="px-4 py-2">{product.careInstructions}</td>
+                                                <td className="px-4 py-2">{product.careInstruction}</td>
                                                 <td className="px-4 py-2">{product.category}</td>
                                                 <td className="px-4 py-2 flex gap-2">
                                                     <button onClick={() => openEditModal(product)} className="text-blue-500 hover:text-blue-700">
@@ -138,48 +155,54 @@ const AllProducts = () => {
                             )}
 
                             {/* Edit Product Modal */}
-                            {showEditModal && (
+                        {showEditModal && (
+                            <form onSubmit={handleEditProduct}>
                                 <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
                                     <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
                                         <h3 className="text-xl font-semibold mb-4">Edit Product</h3>
-                                        <input type="text" placeholder="Image URL" value={currentProduct?.image} onChange={(e) => setCurrentProduct({ ...currentProduct, image: e.target.value })} className="input input-bordered w-full mb-2" />
-                                        <input type="text" placeholder="Name" value={currentProduct?.name} onChange={(e) => setCurrentProduct({ ...currentProduct, name: e.target.value })} className="input input-bordered w-full mb-2" />
-                                        <input type="text" placeholder="Description" value={currentProduct?.description} onChange={(e) => setCurrentProduct({ ...currentProduct, description: e.target.value })} className="input input-bordered w-full mb-2" />
-                                        <input type="text" placeholder="Price" value={currentProduct?.price} onChange={(e) => setCurrentProduct({ ...currentProduct, price: e.target.value })} className="input input-bordered w-full mb-2" />
-                                        <input type="text" placeholder="Care Instructions" value={currentProduct?.careInstructions} onChange={(e) => setCurrentProduct({ ...currentProduct, careInstructions: e.target.value })} className="input input-bordered w-full mb-2" />
-                                        <select value={currentProduct?.category} onChange={(e) => setCurrentProduct({ ...currentProduct, category: e.target.value })} className="select select-bordered w-full mb-4">
+                                        <input type="text" placeholder="Image URL" value={currentProduct.image} onChange={(e) => setCurrentProduct({ ...currentProduct, image: e.target.value })} className="input input-bordered w-full mb-2" />
+                                        <input type="text" placeholder="Name" value={currentProduct.name} onChange={(e) => setCurrentProduct({ ...currentProduct, name: e.target.value })} className="input input-bordered w-full mb-2" />
+                                        <input type="text" placeholder="Description" value={currentProduct.description} onChange={(e) => setCurrentProduct({ ...currentProduct, description: e.target.value })} className="input input-bordered w-full mb-2" />
+                                        <input type="text" placeholder="Price" value={currentProduct.price} onChange={(e) => setCurrentProduct({ ...currentProduct, price: e.target.value })} className="input input-bordered w-full mb-2" />
+                                        <input type="text" placeholder="Care Instructions" value={currentProduct.careInstruction} onChange={(e) => setCurrentProduct({ ...currentProduct, careInstruction: e.target.value })} className="input input-bordered w-full mb-2" />
+                                        <select value={currentProduct.category} onChange={(e) => setCurrentProduct({ ...currentProduct, category: e.target.value })} className="select select-bordered w-full mb-4">
                                             <option value="Fruit">Fruit</option>
                                             <option value="Flower">Flower</option>
                                         </select>
                                         <div className="flex justify-end gap-4">
                                             <button onClick={() => setShowEditModal(false)} className="px-4 py-2 bg-gray-300 rounded-lg">Cancel</button>
-                                            <button onClick={handleEditProduct} className="px-4 py-2 bg-[#6f8430] text-white rounded-lg">Save</button>
+                                            <input type="submit" value="Save" className="px-4 py-2 bg-[#6f8430] text-white rounded-lg" />
                                         </div>
                                     </div>
                                 </div>
-                            )}
+                            </form>
+                        )}
 
                             {/* Add Product Modal */}
                             {showAddModal && (
-                                <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
-                                    <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
-                                        <h3 className="text-xl font-semibold mb-4">Add New Product</h3>
-                                        <input type="text" placeholder="Image URL" onChange={(e) => setCurrentProduct({ ...currentProduct, image: e.target.value })} className="input input-bordered w-full mb-2" />
-                                        <input type="text" placeholder="Name" onChange={(e) => setCurrentProduct({ ...currentProduct, name: e.target.value })} className="input input-bordered w-full mb-2" />
-                                        <input type="text" placeholder="Description" onChange={(e) => setCurrentProduct({ ...currentProduct, description: e.target.value })} className="input input-bordered w-full mb-2" />
-                                        <input type="text" placeholder="Price" onChange={(e) => setCurrentProduct({ ...currentProduct, price: e.target.value })} className="input input-bordered w-full mb-2" />
-                                        <input type="text" placeholder="Care Instructions" onChange={(e) => setCurrentProduct({ ...currentProduct, careInstructions: e.target.value })} className="input input-bordered w-full mb-2" />
-                                        <select onChange={(e) => setCurrentProduct({ ...currentProduct, category: e.target.value })} className="select select-bordered w-full mb-4">
-                                            <option value="">Select Category</option>
-                                            <option value="Fruit">Fruit</option>
-                                            <option value="Flower">Flower</option>
-                                        </select>
-                                        <div className="flex justify-end gap-4">
-                                            <button onClick={() => setShowAddModal(false)} className="px-4 py-2 bg-gray-300 rounded-lg">Cancel</button>
-                                            <button onClick={() => handleAddProduct(currentProduct)} className="px-4 py-2 bg-[#6f8430] text-white rounded-lg">Add</button>
+                                <form onSubmit={handleAddProduct}>
+                                    <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50">
+                                        <div className="bg-white p-6 rounded-lg shadow-lg w-1/3">
+                                            <h3 className="text-xl font-semibold mb-4">Add New Product</h3>
+                                            <input type="text" placeholder="Image URL" onChange={(e) => setCurrentProduct({ ...currentProduct, image: e.target.value })} className="input input-bordered w-full mb-2" />
+                                            <input type="text" placeholder="Name" onChange={(e) => setCurrentProduct({ ...currentProduct, name: e.target.value })} className="input input-bordered w-full mb-2" />
+                                            <input type="text" placeholder="Description" onChange={(e) => setCurrentProduct({ ...currentProduct, description: e.target.value })} className="input input-bordered w-full mb-2" />
+                                            <input type="text" placeholder="Price" onChange={(e) => setCurrentProduct({ ...currentProduct, price: e.target.value })} className="input input-bordered w-full mb-2" />
+                                            <input type="text" placeholder="Care Instructions" onChange={(e) => setCurrentProduct({ ...currentProduct, careInstruction: e.target.value })} className="input input-bordered w-full mb-2" />
+                                            <select onChange={(e) => setCurrentProduct({ ...currentProduct, category: e.target.value })} className="select select-bordered w-full mb-4">
+                                                <option value="">Select Category</option>
+                                                <option value="Fruit">Fruit</option>
+                                                <option value="Flower">Flower</option>
+                                            </select>
+
+                                            <div className="flex justify-end gap-4">
+                                                <button onClick={() => setShowAddModal(false)} className="px-4 py-2 bg-gray-300 rounded-lg">Cancel</button>
+
+                                                <input type="submit" value="add" className="px-4 py-2 bg-[#6f8430] text-white rounded-lg" />
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             )}
                         </div>
                 }

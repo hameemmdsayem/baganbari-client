@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import HelmetHook from "../../hooks/HelmetHook";
 import useAuth from "../../hooks/useAuth";
-import image from "../../assets/user.png";
 import { FaSearch } from 'react-icons/fa';
 import useOwner from "../../hooks/useOwner";
 import useUser from "../../hooks/useUser";
@@ -123,7 +122,7 @@ const Heading = () => {
                                         onClick={() => setUserDropdownOpen(!userDropdownOpen)}
                                         className="flex items-center space-x-2 btn btn-ghost btn-circle"
                                     >
-                                        <img src={image} alt="User" className="w-8 h-8 rounded-full" />
+                                        <img src="https://i.ibb.co.com/87h7xQq/usgs-ho-S3dzgp-Hzw-unsplash.jpg" alt="User" className="w-8 h-8 rounded-full" />
                                     </button>
                                     {userDropdownOpen && (
                                         <div className="absolute right-0 mt-2 w-48 bg-white rounded-md overflow-hidden shadow-xl z-10 border border-[#4CAF50]">

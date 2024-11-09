@@ -59,7 +59,7 @@ const UserPurchaseHistory = () => {
                                     <td className="px-4 py-2">{idx + 1}</td>
                                     <td className="px-4 py-2">{purchase.orderNumber}</td>
                                     <td className="px-4 py-2">{purchase.deliveryAddress}</td>
-                                    <td className="px-4 py-2">${purchase.totalCost.toFixed(2)}</td>
+                                    <td className="px-4 py-2">${purchase.totalCost}</td>
                                     <td className="px-4 py-2">{purchase.expectedDelivery}</td>
                                     <td className="px-4 py-2">{purchase.status}</td>
                                 </tr>

@@ -24,7 +24,7 @@ const Plants = ({ plant }) => {
                     <h2 className="card-title text-sm sm:text-md md:text-lg font-semibold text-[#2E7D32] mb-2 truncate">{name}</h2>
                     <div className="flex flex-col lg:flex-row justify-between items-center mt-1">
                         <span className="badge badge-outline badge-lg text-white bg-[#2E7D32] border-[#2E7D32] px-2 py-1 sm:px-3 sm:py-2 mb-4">
-                            ${price.toFixed(2)}
+                            ${price}
                         </span>
                         <Link to={`/plantDetails/${_id}`} className="badge badge-outline badge-lg text-xs sm:text-sm md:text-base font-medium text-[#2E7D32] hover:bg-[#2E7D32] hover:text-[#F6FCDF]">
                             <span>View Details</span>

@@ -42,8 +42,8 @@ const CartShop = () => {
                             <span>{product.quantity}</span>
                             <button onClick={() => handleQuantityChange(product.id, 1)} className="p-1 rounded-full bg-gray-200 hover:bg-gray-300"><FaPlus /></button>
                         </div>
-                        <span>${product.price.toFixed(2)}</span>
-                        <span className="font-semibold">${(product.price * product.quantity).toFixed(2)}</span>
+                        <span>${product.price}</span>
+                        <span className="font-semibold">${(product.price * product.quantity)}</span>
                     </div>
                 ))}
             </div>
@@ -79,11 +79,11 @@ const CartShop = () => {
                     </div>
                     <div className="flex items-center justify-between mb-2">
                         <span>Subtotal</span>
-                        <span>${total.toFixed(2)}</span>
+                        <span>${total}</span>
                     </div>
                     <div className="flex items-center justify-between font-semibold text-lg">
                         <span>Total</span>
-                        <span>${total.toFixed(2)}</span>
+                        <span>${total}</span>
                     </div>
                     <button className="w-full mt-4 py-2 bg-[#2E7D32] text-white rounded-md hover:bg-[#366738]">Checkout</button>
                 </div>
