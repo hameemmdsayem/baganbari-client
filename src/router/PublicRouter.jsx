@@ -25,6 +25,8 @@ import UserProfile from "../Dashboard/User/UserProfile/UserProfile";
 import CreateShop from "../Dashboard/User/CreateShop/CreateShop";
 import ShopDetails from "../AllShops/ShopDetails";
 import CartShop from "../Dashboard/User/ShopCart/CartShop";
+import OrderPlace from "../Dashboard/User/ShopCart/orderPlace";
+import Receipt from "../Dashboard/User/ShopCart/Receipt";
 
 const router = createBrowserRouter([
     {
@@ -57,18 +59,26 @@ const router = createBrowserRouter([
                 element: <CartShop></CartShop>,
             },
             {
+                path: "/orderPlace",
+                element: <OrderPlace></OrderPlace>,
+            },
+            {
+                path: "/receipt",
+                element: <Receipt></Receipt>,
+            },
+            {
                 path: "/shops",
                 element: <AllShops></AllShops>,
             },
             {
                 path: "/plantDetails/:id",
                 element: <ViewDetails></ViewDetails>,
-                loader: ({params})=> fetch(`http://localhost:5000/allplants/${params.id}`)
+                loader: ({params})=> fetch(`https://baganbari-server.vercel.app/allplants/${params.id}`)
             },
             {
                 path: "/shopDetails/:id",
                 element: <ShopDetails></ShopDetails>,
-                loader: ({params})=> fetch(`http://localhost:5000/shops/${params.id}`)
+                loader: ({params})=> fetch(`https://baganbari-server.vercel.app/shops/${params.id}`)
             },
             {
                 path: "/login",

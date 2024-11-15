@@ -8,7 +8,7 @@ const FlowerHome = () => {
     const [flowers, setFlowers] = useState([]);
     const [dataLength, setDataLength] = useState(6)
 
-    const { loader } = useAuth();
+    const { user, loader } = useAuth();
     const axiosInstance = useAxios();
 
     const shuffleArray = (array) => {
@@ -40,7 +40,7 @@ const FlowerHome = () => {
                             <div className="grid grid-cols-1 lg:grid-cols-6 gap-4 space-y-4 lg:space-y-0 ">
 
                                 {
-                                    flowers.slice(0, dataLength).map(flower => <Flowers key={flower._id} flower={flower}></Flowers>)
+                                    flowers.slice(0, dataLength).map(flower => <Flowers key={flower._id} flower={flower} email= {user?.email}></Flowers>)
                                 }
                             </div>
                         </div>

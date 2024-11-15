@@ -1,10 +1,14 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import HelmetHook from "../../hooks/HelmetHook";
 import { useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import useAxios from "../../hooks/useAxios";
 
 const ViewDetails = () => {
+    const {user} = useAuth();
+    const axiosInstance = useAxios();
     const loadedData = useLoaderData();
-    const { image, name, price, description } = loadedData;
+    const { image, name, price, description, shopName } = loadedData;
     const navigate = useNavigate();
     const handleBackHomePage = () => { navigate("/"); };
 
@@ -20,6 +24,23 @@ const ViewDetails = () => {
             setQuantity(quantity - 1);
         }
     };
+
+    
+
+    const handleAddToCart = () => {
+        const productInfo = {
+            image, 
+            name,
+            email : user.email,
+            price,
+            shopName,
+            quantity
+        }
+
+        axiosInstance.post('/carts', productInfo);
+
+        console.log(productInfo)
+    }
 
     return (
         <>
@@ -52,7 +73,7 @@ const ViewDetails = () => {
                     </div>
 
                     {/* Buy Button */}
-                    <button className="btn bg-[#2E7D32] text-white rounded-full px-8 py-3 shadow-lg hover:bg-white hover:text-[#2E7D32] hover:border-[#2E7D32] transition duration-300">
+                    <button className="btn bg-[#2E7D32] text-white rounded-full px-8 py-3 shadow-lg hover:bg-white hover:text-[#2E7D32] hover:border-[#2E7D32] transition duration-300" onClick={handleAddToCart} >
                         Add to cart
                     </button>
                 </div>

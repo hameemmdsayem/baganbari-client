@@ -8,7 +8,7 @@ const FruitHome = () => {
     const [fruits, setFruits] = useState([]);
     const [dataLength, setDataLength] = useState(4);
 
-    const { loader } = useAuth();
+    const { user, loader } = useAuth();
     const axiosInstance = useAxios();
 
     const shuffleArray = (array) => {
@@ -41,7 +41,7 @@ const FruitHome = () => {
                                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 space-y-4 lg:space-y-0 ">
 
                                     {
-                                        fruits.slice(0, dataLength).map(fruit => <Fruits key={fruit._id} fruit={fruit}></Fruits>)
+                                        fruits.slice(0, dataLength).map(fruit => <Fruits key={fruit._id} fruit={fruit} email={user?.email}></Fruits>)
                                     }
                                 </div>
                             </div>

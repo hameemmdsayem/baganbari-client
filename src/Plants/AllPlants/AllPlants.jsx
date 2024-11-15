@@ -1,4 +1,4 @@
-import BannerHome from "../../Home/Banner/BannerHome";
+
 import Plants from "./Plants";
 import useAuth from "../../hooks/useAuth";
 import useAxios from "../../hooks/useAxios";
@@ -32,7 +32,7 @@ const AllPlants = () => {
 
     return (
         <div>
-            <PublicBanner title="Explore All" description="Explore our diverse plant selection for any space or garden"></PublicBanner>
+            <PublicBanner searchData = {plants} title="Explore All" description="Explore our diverse plant selection for any space or garden"></PublicBanner>
 
             <div>
                 {

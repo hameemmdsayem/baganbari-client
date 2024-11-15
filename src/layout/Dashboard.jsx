@@ -23,7 +23,7 @@ const Dashboard = () => {
     return (
         <div className="flex flex-col lg:flex-row min-h-screen ">
             {/* Sidebar */}
-            <div className="bg-[#F6FCDF] text-base-content lg:w-80 w-full lg:min-h-full p-4 lg:fixed">
+            <div className="bg-[#F3F4F6] text-base-content lg:w-80 w-full lg:min-h-full p-4 lg:fixed">
                 <ul className="menu">
                     <li className="mb-2">
                         <Link to={location?.state ? location.state : '/'} className="btn btn-square">
@@ -62,7 +62,7 @@ const Dashboard = () => {
             </div>
 
             {/* Main Content */}
-            <div className="flex-1 lg:ml-80 p-6 bg-[#F6FCDF]">
+            <div className="flex-1 lg:ml-80 p-6 bg-[#F3F4F6]">
                 <Outlet />
             </div>
         </div>

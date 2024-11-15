@@ -104,14 +104,14 @@ const AllProducts = () => {
                                 <table className="table-auto w-full bg-white shadow-md rounded-lg">
                                     <thead className="bg-gray-200">
                                         <tr>
-                                            <th className="px-4 py-2">#</th>
-                                            <th className="px-4 py-2">Image</th>
-                                            <th className="px-4 py-2">Name</th>
-                                            <th className="px-4 py-2">Description</th>
-                                            <th className="px-4 py-2">Price</th>
-                                            <th className="px-4 py-2">Care Instruction</th>
-                                            <th className="px-4 py-2">Category</th>
-                                            <th className="px-4 py-2">Action</th>
+                                            <th className="text-left px-4 py-2">#</th>
+                                            <th className="text-left px-4 py-2">Image</th>
+                                            <th className="text-left px-4 py-2">Name</th>
+                                            <th className="text-left px-4 py-2">Description</th>
+                                            <th className="text-left px-4 py-2">Price</th>
+                                            <th className="text-left px-4 py-2">Care Instruction</th>
+                                            <th className="text-left px-4 py-2">Category</th>
+                                            <th className="text-left px-4 py-2">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -126,7 +126,7 @@ const AllProducts = () => {
                                                 <td className="px-4 py-2">${product.price}</td>
                                                 <td className="px-4 py-2">{product.careInstruction}</td>
                                                 <td className="px-4 py-2">{product.category}</td>
-                                                <td className="px-4 py-2 flex gap-2">
+                                                <td className="px-4  flex gap-2 mt-5">
                                                     <button onClick={() => openEditModal(product)} className="text-blue-500 hover:text-blue-700">
                                                         <FaPen />
                                                     </button>

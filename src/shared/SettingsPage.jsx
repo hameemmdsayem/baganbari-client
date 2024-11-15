@@ -75,6 +75,16 @@ const SettingsPage = () => {
                                 className="input input-bordered w-full bg-gray-200 cursor-not-allowed"
                             />
                         </div>
+                        <div className="w-full mb-4">
+                            <label className="block mb-1">Address</label>
+                            <input
+                                type="email"
+                                name="email"
+                                value={userInfo.email || ''}
+                                readOnly
+                                className="input input-bordered w-full bg-gray-200 cursor-not-allowed"
+                            />
+                        </div>
                         <input
                             className="mt-4 px-4 py-2 bg-[#6F8430] text-white rounded-lg shadow-md hover:bg-[#5d6d2c] cursor-pointer"
                             type="submit"

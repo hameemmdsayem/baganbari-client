@@ -10,7 +10,7 @@ const useUser = () => {
     const {data: isUser, isPending: isUserLoading} = useQuery({
         queryKey: [user?.email, 'isUser'],
         queryFn: async()=>{
-            const res = await axiosInstance.get(`/users/user/${user.email}`)
+            const res = await axiosInstance.get(`/users/user/${user?.email}`)
             return res.data?.user;
         },
         enabled: !!user?.email
